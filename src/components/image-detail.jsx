@@ -2,6 +2,7 @@ var React = require('react');
 var Reflux = require('reflux');
 var ImageStore = require('../stores/image-store');
 var Actions = require('../actions');
+var CommentList = require('./comment-list');
 var PropTypes = React.PropTypes;
 
 
@@ -31,11 +32,18 @@ var ImageDetail = React.createClass({
           <div className="panel-heading">
             <h4>{this.state.image.title}</h4>
           </div>
-          <div class="panel-body">
+          <div className="panel-body">
             {this.renderImage()}
           </div>
-          <div className="panel-footer">
+          <div className={"panel-footer " +
+                this.state.image.description? 'hidden': ''}>
             <h5>{this.state.image.description}</h5>
+          </div>
+          <div className="panel-heading">
+            <h4>Comments</h4>
+          </div>
+          <div className="panel-body">
+            <CommentList id={this.state.image.id}/>
           </div>
         </div>
       </div>

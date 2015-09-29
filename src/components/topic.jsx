@@ -27,8 +27,6 @@ var Topic = React.createClass({
   },
 
   render: function() {
-    console.log('Topic is being renderd with ID', this.props.params.id);
-    console.log('I have this many images', this.state.images.length);
     return(
       <div className="topic">
         {this.renderImages()}
